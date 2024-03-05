@@ -105,6 +105,9 @@ void getCapCallback (const sensor_msgs::ImageConstPtr & image_msg)
 
             marker_detector.Detect(&ipl_image, cam, true, false, max_new_marker_error, max_track_error, CVSEQ, true);
             arPoseMarkers_.markers.clear ();
+
+            arPoseMarkers_.header.stamp = image_msg->header.stamp;
+
 			for (size_t i=0; i<marker_detector.markers->size(); i++)
 			{
 				//Get the pose relative to the camera
