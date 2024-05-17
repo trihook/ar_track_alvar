@@ -208,6 +208,8 @@ void getCapCallback (const sensor_msgs::ImageConstPtr & image_msg)
       visualization_msgs::Marker rvizMarker;
       ar_track_alvar_msgs::AlvarMarker ar_pose_marker;
       arPoseMarkers_.markers.clear ();
+      arPoseMarkers_.header.stamp = image_msg->header.stamp;
+
 
 
       //Convert the image
